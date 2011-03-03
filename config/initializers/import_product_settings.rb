@@ -20,7 +20,7 @@ class ImportProductSettings
       'Image 3' => 10,
       'Image 4' => 11,
       'Description' => 12,
-      'Category' => 13
+      'Stores' => 13
     }
 
     #Where are you keeping your master images?
