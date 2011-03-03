@@ -63,7 +63,7 @@ class ProductImport < ActiveRecord::Base
           #Save the object before creating asssociated objects
           product_obj.save
           #Now we have all but images and taxons loaded
-          associate_taxon('Stores', row[columns['Category']], product_obj)
+          associate_taxon('Stores', row[columns['Stores']], product_obj)
           #Just images 
           find_and_attach_image(row[columns['Image Main']], product_obj)
           find_and_attach_image(row[columns['Image 2']], product_obj)
