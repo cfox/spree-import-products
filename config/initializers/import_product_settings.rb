@@ -8,19 +8,20 @@ class ImportProductSettings
     #TODO this could probably be marked up in YML
     COLUMN_MAPPINGS = {
       'SKU' => 0,
-      'Name' => 1,
+      'Description' => 0,
+      'Name' => 1,      
       'Master Price' => 2,
-      'Cost Price' => 3,
-      'Weight' => 4,
-      'Height' => 5,
-      'Width' => 6,
-      'Depth' => 7,
-      'Image Main' => 8,
-      'Image 2' => 9,
-      'Image 3' => 10,
-      'Image 4' => 11,
-      'Description' => 12,
-      'Stores' => 13
+      'Cost Price' => 2,
+      'Stores' => 3,
+      'Image Main' => 4
+      #'Weight' => 4,
+      #'Height' => 5,
+      #'Width' => 6,
+      #'Depth' => 7,
+      #'Image 2' => 9,
+      #'Image 3' => 10,
+      #'Image 4' => 11,
+      
     }
 
     #Where are you keeping your master images?

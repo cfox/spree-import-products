@@ -42,11 +42,11 @@ class ProductImport < ActiveRecord::Base
         product_information[:price] = row[columns['Master Price']]
         product_information[:cost_price] = row[columns['Cost Price']]
         product_information[:available_on] = DateTime.now - 1.day #Yesterday to make SURE it shows up
-        product_information[:weight] = row[columns['Weight']]
-        product_information[:height] = row[columns['Height']]
-        product_information[:depth] = row[columns['Depth']]
-        product_information[:width] = row[columns['Width']]
-        product_information[:description] = row[columns['Description']]
+        #product_information[:weight] = row[columns['Weight']]
+        #product_information[:height] = row[columns['Height']]
+        #product_information[:depth] = row[columns['Depth']]
+        #product_information[:width] = row[columns['Width']]
+        product_information[:description] = row[columns['Description']] + " - " + row[columns['Name']]
         
 
         #Create the product skeleton - should be valid
@@ -66,9 +66,9 @@ class ProductImport < ActiveRecord::Base
           associate_taxon('Stores', row[columns['Stores']], product_obj)
           #Just images 
           find_and_attach_image(row[columns['Image Main']], product_obj)
-          find_and_attach_image(row[columns['Image 2']], product_obj)
-          find_and_attach_image(row[columns['Image 3']], product_obj)
-          find_and_attach_image(row[columns['Image 4']], product_obj)
+          #find_and_attach_image(row[columns['Image 2']], product_obj)
+          #find_and_attach_image(row[columns['Image 3']], product_obj)
+          #find_and_attach_image(row[columns['Image 4']], product_obj)
           #Return a success message
           log("#{product_obj.name} successfully imported.\n")
         end
