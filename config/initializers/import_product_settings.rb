@@ -16,7 +16,11 @@ class ImportProductSettings
       'Size' => 1,
       'Type' => 5,
       'Finish' =>11,
+<<<<<<< HEAD
       'Image Main' => 15
+=======
+      'Image Main' => 4
+>>>>>>> a8a26f4... modified column mapping and support for multiple taxons per product
       #'Weight' => 4,
       #'Height' => 5,
       #'Width' => 6,
