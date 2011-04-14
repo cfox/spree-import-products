@@ -16,7 +16,7 @@ class ImportProductSettings
       'Size' => 1,
       'Type' => 5,
       'Finish' =>11,
-      'Image Main' => 4
+      'Image Main' => 15
       #'Weight' => 4,
       #'Height' => 5,
       #'Width' => 6,
