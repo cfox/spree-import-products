@@ -8,11 +8,14 @@ class ImportProductSettings
     #TODO this could probably be marked up in YML
     COLUMN_MAPPINGS = {
       'SKU' => 0,
-      'Description' => 0,
-      'Name' => 1,      
-      'Master Price' => 2,
-      'Cost Price' => 2,
-      'Stores' => 3,
+      #'Description' => 0,
+      'Name' => 0,
+      'Master Price' => 13,
+      'Cost Price' => 12,
+      'Brand' => 14,
+      'Size' => 1,
+      'Type' => 5,
+      'Finish' =>11,
       'Image Main' => 4
       #'Weight' => 4,
       #'Height' => 5,
@@ -39,5 +42,5 @@ class ImportProductSettings
     LOGFILE = File.join(Rails.root, '/log/', "import_products_#{Rails.env}.log")
     
     #Set this to true if you want to destroy your existing products after you have finished importing products
-    DESTROY_ORIGINAL_PRODUCTS_AFTER_IMPORT = false
+    DESTROY_ORIGINAL_PRODUCTS_AFTER_IMPORT = true
 end

@@ -46,7 +46,7 @@ class ProductImport < ActiveRecord::Base
         #product_information[:height] = row[columns['Height']]
         #product_information[:depth] = row[columns['Depth']]
         #product_information[:width] = row[columns['Width']]
-        product_information[:description] = row[columns['Description']] + " - " + row[columns['Name']]
+        #product_information[:description] = row[columns['Description']] + " - " + row[columns['Name']]
         
 
         #Create the product skeleton - should be valid
@@ -63,7 +63,10 @@ class ProductImport < ActiveRecord::Base
           #Save the object before creating asssociated objects
           product_obj.save
           #Now we have all but images and taxons loaded
-          associate_taxon('Stores', row[columns['Stores']], product_obj)
+          associate_taxon('Brand', row[columns['Brand']], product_obj)
+          associate_taxon('Type', row[columns['Type']], product_obj)
+          associate_taxon('Size', row[columns['Size']], product_obj)
+          associate_taxon('Finish', row[columns['Finish']], product_obj)
           #Just images 
           find_and_attach_image(row[columns['Image Main']], product_obj)
           #find_and_attach_image(row[columns['Image 2']], product_obj)
