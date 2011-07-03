@@ -45,7 +45,7 @@ class ProductImport < ActiveRecord::Base
         product_information[:available_on] = DateTime.now - 1.day #Yesterday to make SURE it shows up
 
         # Put taxon names in as meta keywords so they can be used in search
-        taxon_names = ['Brand', 'Type', 'Size', 'Finish'].collect{|t| row[columns[t]]}.reject{|tn| tn.nil? || tn.empty?}
+        taxon_names = ['Brand', 'Type', 'Size', 'Finish'].collect{|t| row[columns[t]]}.reject{|tn| tn.nil? || tn.empty?}.join(' ')
         product_information[:meta_keywords] = taxon_names
 
         #product_information[:weight] = row[columns['Weight']]
