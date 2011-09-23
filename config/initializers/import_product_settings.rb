@@ -7,15 +7,18 @@ class ImportProductSettings
     #This is accessed in the import method using COLUMN_MAPPINGS['field'] for niceness and readability
     #TODO this could probably be marked up in YML
     COLUMN_MAPPINGS = {
-      'SKU' => 0,
-      #'Description' => 0,
-      'Name' => 0,
-      'Master Price' => 13,
-      'Cost Price' => 12,
-      'Brand' => 14,
-      'Size' => 1,
-      'Type' => 5,
-      'Finish' =>11,
+      'SKU' => 1,
+      'Description' => 8,
+      'Name' => 2,
+      'Master Price' => 12,
+      #'Cost Price' => 12,
+      'Brand' => 0,
+      'Size' => 6,
+      'Type' => 3,
+      'Finish Group' => 4,
+      'Color Group' => 5,
+      'Finish' => 10,
+      'Collection' => 11,
       'Image Main' => 15
       #'Weight' => 4,
       #'Height' => 5,
@@ -35,7 +38,7 @@ class ImportProductSettings
     
     #From experience, CSV files from clients tend to have a few 'header' rows - count them up if you have them,
     #and enter this number in here - the import script will skip these rows.
-    INITIAL_ROWS_TO_SKIP = 1
+    INITIAL_ROWS_TO_SKIP = 2
 
     #I would just leave this as is - Logging is useful for a batch job like this - so
     # useful in fact, that I have put it in a separate log file.

@@ -41,18 +41,18 @@ class ProductImport < ActiveRecord::Base
         product_information[:sku] = row[columns['SKU']]
         product_information[:name] = row[columns['Name']]
         product_information[:price] = row[columns['Master Price']]
-        product_information[:cost_price] = row[columns['Cost Price']]
+        #product_information[:cost_price] = row[columns['Cost Price']]
         product_information[:available_on] = DateTime.now - 1.day #Yesterday to make SURE it shows up
 
         # Put taxon names in as meta keywords so they can be used in search
-        taxon_names = ['Brand', 'Type', 'Size', 'Finish'].collect{|t| row[columns[t]]}.reject{|tn| tn.nil? || tn.empty?}.join(' ')
+        taxon_names = ['Brand', 'Type', 'Size', 'Finish', 'Finish Group', 'Color Group', 'Collection'].collect{|t| row[columns[t]]}.reject{|tn| tn.nil? || tn.empty?}.join(' ')
         product_information[:meta_keywords] = taxon_names
 
         #product_information[:weight] = row[columns['Weight']]
         #product_information[:height] = row[columns['Height']]
         #product_information[:depth] = row[columns['Depth']]
         #product_information[:width] = row[columns['Width']]
-        #product_information[:description] = row[columns['Description']] + " - " + row[columns['Name']]
+        product_information[:description] = row[columns['Description']]
         
 
         #Create the product skeleton - should be valid
@@ -73,6 +73,8 @@ class ProductImport < ActiveRecord::Base
           associate_taxon('Type', row[columns['Type']], product_obj)
           associate_taxon('Size', row[columns['Size']], product_obj)
           associate_taxon('Finish', row[columns['Finish']], product_obj)
+          associate_taxon('Finish Group', row[columns['Finish Group']], product_obj)
+          associate_taxon('Color Group', row[columns['Color Group']], product_obj)
           #Just images 
           find_and_attach_image(row[columns['Image Main']], product_obj)
           #find_and_attach_image(row[columns['Image 2']], product_obj)
