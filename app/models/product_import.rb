@@ -75,6 +75,7 @@ class ProductImport < ActiveRecord::Base
           associate_taxon('Finish', row[columns['Finish']], product_obj)
           associate_taxon('Finish Group', row[columns['Finish Group']], product_obj)
           associate_taxon('Color Group', row[columns['Color Group']], product_obj)
+          associate_taxon('Collection', row[columns['Collection']], product_obj)
           #Just images 
           find_and_attach_image(row[columns['Image Main']], product_obj)
           #find_and_attach_image(row[columns['Image 2']], product_obj)
